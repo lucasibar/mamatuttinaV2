@@ -1,5 +1,8 @@
 import {
-  GET_DAYS
+    GET_DAY,
+    GET_DIARY,
+    POST_NEW_ITEM
+
   } from './actions'
 
 
@@ -7,117 +10,37 @@ import {
 
 
   
-  const initialState = {
-    actualDay:{
-          day: "Dia 1",
-          almuerzo:{
-              ingredients:[
-                  {
-                      name: "fideos con salsa blanca",
-                      cuantity: 1,
-                      units: "portion",
-                      ingredients:[
-                          {
-                              name: "fideos",
-                              cuantity: 1,
-                              unit: "portion",
-                              ingredients:[]
-                          },
-                          {
-                              name: "rouxe",
-                              cuantity: 1,
-                              unit: "cucharada",
-                              ingredients:[
-                                  {
-                                      name: "manteca",
-                                      cuantity: 10,
-                                      unit: "grs",
-                                      ingredients:[]
-                                  },
-                                  {
-                                      name: "harina" ,
-                                      cuantity: 50,
-                                      unti: "grs",
-                                      ingredients:[]
-                                  }
-                              ]
-                          }
-                      ]
-                  }
-                  ]
-  
-          }
-  
-      },
-    // days:[
-    //   {
-    //     day: "Dia 1",
-    //       almuerzo:{
-    //           ingredients:[
-    //               {
-    //                   name: "fideos con salsa blanca",
-    //                   cuantity: 1,
-    //                   units: "portion",
-    //                   ingredients:[
-    //                       {
-    //                           name: "fideos",
-    //                           cuantity: 1,
-    //                           unit: "portion",
-    //                           ingredients:[]
-    //                       },
-    //                       {
-    //                           name: "rouxe",
-    //                           cuantity: 1,
-    //                           unit: "cucharada",
-    //                           ingredients:[
-    //                               {
-    //                                   name: "manteca",
-    //                                   cuantity: 10,
-    //                                   unit: "grs",
-    //                                   ingredients:[]
-    //                               },
-    //                               {
-    //                                   name: harina ,
-    //                                   cuantity: 50,
-    //                                   unti: grs,
-    //                                   ingredients:[]
-    //                               }
-    //                           ]
-    //                       }
-    //                   ]
-    //               }
-    //               ]
-
-    //       }
-    //   },
-    //   {
-    //     day: "Dia 2",
-    //       cena:{
-    //           ingredients:[
-    //               {
-    //                   name: "tomate",
-    //                   cuantity: 1,
-    //                   units: portion,
-    //                   ingredients:[]
-                          
-    //               }
-    //               ]
-
-    //       }
-    //   }
-    // ]
-  };
+const initialState = { day: {}, diary:[]}
 
   const rootReducer = (state = initialState, action) => {
     switch(action.type) {
-    case GET_DAYS:
-      return {
-        ...state,
-        day: action.payload
-    }
+        case GET_DAY:
+            return {
+              ...state,
+              day: action.payload
+            }
+        case GET_DIARY:
+          return {
+              ...state,
+              diary: action.payload
+        }
+        case POST_NEW_ITEM:
+          
+          return {
+            ...state,
+            day: {
+              ...state.day,
+              ingredients_products:[
+                ...state.day.ingredients_products,
+                action.payload
+              ]
+            }
+            
+          }
+          
 
 
-  default: return state
+        default: return state
   };
   };
 

@@ -1,34 +1,76 @@
 import * as React from 'react';
 import './Home.css'
-
+import {useState, useEffect} from 'react'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import {Link} from 'react-router-dom'
 import CommentIcon from '@mui/icons-material/Comment';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
+import {getDay, getDiary} from '../../redux/actions'
+import DayPagination from './DayPagination'
+import AddItem from './AddItem'
+import ShopList from '../ShopList/ShopList'
+
 
 function Home(props) {
-  const actualDay = useSelector((state) => state.actualDay);
+  let dispatch = useDispatch() 
+var numberDay= 2 //Este numero va a tener que venir de la cache donde se va a aguardar el ultimo que uso 
+let [open, setOpen] = useState(false)
+  useEffect(()=>{
+    dispatch(getDay(numberDay))
+    dispatch(getDiary())
+  },[dispatch])
+
+
+  const actualDay = useSelector((state) => state.day);
   
-  console.log(actualDay)
+
+  function openInput(){
+    setOpen(!open)
+  }
+  // console.log(actualDay)
+
   return (
+    <div>
+    <DayPagination />
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-    {[1, 2, 3].map((value) => (
+    {actualDay.ingredients_products?.map((list, index) => (
       <ListItem
-        key={value}
+        key={index}
         disableGutters
         secondaryAction={
           <IconButton aria-label="comment">
+            <h6>
+            {`${list.unit}, ${list.cuantity}`}  
+            </h6>
             <CommentIcon />
           </IconButton>
         }
       >
-        <ListItemText primary={`Line item ${value}`} />
+        <ListItemText primary={`${index}, ${list.name}`} />
       </ListItem>
     ))}
   </List>
-  )
+{!open?
+<>
+<h1 className='addButton' onClick={openInput}>{"(volver)"}</h1>
+<AddItem/>
+</>
+:
+<h1 className='addButton' onClick={openInput}>Añadir alimento</h1>
+}
+<button>
+
+        <Link to = '/listacompras'>
+          <span >
+          lista de compras
+          </span>
+        </Link> 
+</button>
+</div>  
+)
 }
 
 export default Home;
