@@ -2,7 +2,8 @@ import {
     GET_DAY,
     GET_DIARY,
     POST_NEW_ITEM,
-    PUT_DAYBEFORE
+    PUT_DAYBEFORE,
+    PUT_DAYAFTER
 
   } from './actions'
 
@@ -29,7 +30,15 @@ const initialState = { day: {}, diary:[]}
         let dayNumber = action.payload
         let newDay= state.diary.filter(d=> d.number=== dayNumber-1 )
         let dayObject = newDay[0]
-        console.log(dayObject)
+
+        return{         
+            ...state,
+           day: dayObject
+        }
+        case PUT_DAYAFTER:
+        let dayNumber = action.payload
+        let newDay= state.diary.filter(d=> d.number=== dayNumber+1 )
+        let dayObject = newDay[0]
         return{         
             ...state,
            day: dayObject
