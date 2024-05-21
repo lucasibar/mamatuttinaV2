@@ -7,16 +7,32 @@ import ListItemText from '@mui/material/ListItemText';
 import CommentIcon from '@mui/icons-material/Comment';
 import IconButton from '@mui/material/IconButton';
 import { useDispatch, useSelector } from 'react-redux';
-import {getDay, getDiary} from '../../redux/actions'
+import {getDiary} from '../../redux/actions'
 
 
 function ShopList(props) {
     let dispatch = useDispatch() 
+
+    useEffect(()=>{
+        dispatch(getDiary())
+    },[dispatch])
+
     const diariAllDays = useSelector((state) => state.diary);
+    let [finalList, setFinalList]=useState([])
+
+    useEffect(()=>{
+        let itemsFilter = diariAllDays?.map(day=>{
+            let items = day.ingredients_products
+            return items
+        })
+        
+        setFinalList(itemsFilter.flat())
+    },[diariAllDays])
+    
 
 
-    useEffect()
-      
+
+
   return (
     <div>
         <h1 >QUE ONDA BATO!!</h1>
@@ -29,20 +45,20 @@ function ShopList(props) {
 
 
         <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-            {diariAllDays.ingredients_products?.map((list, index) => (
+            {finalList?.map((item, index) => (
             <ListItem
                 key={index}
                 disableGutters
                 secondaryAction={
                 <IconButton aria-label="comment">
                     <h6>
-                    {`${list.unit}, ${list.cuantity}`}  
+                    {`${item.unit}, ${item.cuantity}`}  
                     </h6>
                     <CommentIcon />
                 </IconButton>
                 }
             >
-                <ListItemText primary={`${index}, ${list.name}`} />
+                <ListItemText primary={`${index}, ${item.name}`} />
             </ListItem>
             ))}
         </List>

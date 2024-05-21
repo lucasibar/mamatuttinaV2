@@ -23,14 +23,13 @@ let [open, setOpen] = useState(false)
     dispatch(getDiary())
   },[dispatch])
 
-
   const actualDay = useSelector((state) => state.day);
-  
+
 
   function openInput(){
     setOpen(!open)
   }
-  // console.log(actualDay)
+ 
 
   return (
     <div>
@@ -55,7 +54,8 @@ let [open, setOpen] = useState(false)
   </List>
 {!open?
 <>
-<h1 className='addButton' onClick={openInput}>{"(volver)"}</h1>
+
+<button className='addButton' style={{visibitlity : "hidden"}} onClick={openInput}>{"(volver)"}</button>
 <AddItem/>
 </>
 :
