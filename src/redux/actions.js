@@ -3,6 +3,7 @@ export const GET_DAY= "GET_DAY"
 export const GET_DIARY= "GET_DIARY"
 export const POST_NEW_ITEM= "POST_NEW_ITEM" 
 export const PUT_DAYBEFORE= "PUT_DAYBEFORE" 
+export const PUT_DAYAFTER= "PUT_DAYAFTER" 
 
 
 //DAY CRUD
@@ -24,8 +25,12 @@ export const getDay = () => dispatch => {
   } })
 }
 
-export const dayBefore1 =(dayNumber)=>dispatch => {
+export const dayBefore =(dayNumber)=>dispatch => {
     return dispatch({type: PUT_DAYBEFORE, payload: dayNumber })
+
+}
+export const dayAfter =(dayNumber)=>dispatch => {
+    return dispatch({type: PUT_DAYAFTER, payload: dayNumber })
 
 }
 //SHOPLIST CRUD
