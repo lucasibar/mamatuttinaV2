@@ -28,20 +28,20 @@ const initialState = { day: {}, diary:[]}
         }
         case PUT_DAYBEFORE:
         let dayNumber = action.payload
-        let newDay= state.diary.filter(d=> d.number=== dayNumber-1 )
-        let dayObject = newDay[0]
+        let beforeDay= state.diary.filter(d=> d.number=== dayNumber-1 )
+        let dayBefore = beforeDay[0]
 
         return{         
             ...state,
-           day: dayObject
+           day: dayBefore
         }
         case PUT_DAYAFTER:
-        let dayNumber = action.payload
-        let newDay= state.diary.filter(d=> d.number=== dayNumber+1 )
-        let dayObject = newDay[0]
+        let numberDay = action.payload
+        let afterDay= state.diary.filter(d=> d.number=== numberDay+1 )
+        let dayAfter = afterDay[0]
         return{         
             ...state,
-           day: dayObject
+           day: dayAfter
         }
         
         case POST_NEW_ITEM:
