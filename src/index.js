@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App.js";
 import reportWebVitals from "./reportWebVitals";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -19,3 +20,15 @@ root.render(
 );
 
 reportWebVitals();
+
+
+serviceWorkerRegistration.register({
+  onUpdate: async (registration) => {
+      if (registration && registration.waiting) {
+      await registration.unregister();
+      registration.waiting.postMessage({ type: "SKIP_WAITING" });
+
+      window.location.reload();
+    }
+  },
+});

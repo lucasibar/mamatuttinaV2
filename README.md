@@ -1,4 +1,4 @@
-
+<!-- 
   
   const initialState = {
     actualDay:{
@@ -130,4 +130,4 @@ ingredients:[
   };
 
   export default rootReducer;
-
+ -->
