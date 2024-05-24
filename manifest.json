@@ -1,0 +1,30 @@
+{
+  "background_color": "#ffffff",
+  "categories":["fitness", "food", "health", "lifestyle"],
+  "description": "Una aplicacion sensilla para organizar las compras segun un historial propio",
+  "dir": "ltr",
+  "display": "standalone",
+  "icons":[
+    {
+      "src": "logo192.png",
+      "size": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo512.png",
+      "size": "512x512",
+      "type": "image/png"
+    }
+
+  ],
+  "id": "/v2",
+  "lang": "es-ES",
+  "name": "mamatuttina",
+  "orientation": "any",
+  "scope": "/",
+  "start_url": "/",
+  "theme_color": "orange"
+}
+
+
+
