@@ -9,12 +9,12 @@ function App() {
       <Routes>
       <Route 
        exact  
-          path="/listacompras"
+          path="/mamatuttinav2/listacompras"
           element={<ShopList />}
         /> 
       <Route 
           exact 
-          path="/"
+          path="/mamatuttinav2"
           element={<Home />}
         /> 
       </Routes>
