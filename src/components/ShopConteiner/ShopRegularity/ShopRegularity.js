@@ -11,7 +11,7 @@ import {Link} from 'react-router-dom'
 import { useState, useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux';
 import {addNewItem} from '../../../redux/actions'
-import ShopList from '../ShopList/ShopList';
+import ShopList from './ShopList/ShopList';
 
 export default function ShopRegularity({listItems, regularity}) {
 

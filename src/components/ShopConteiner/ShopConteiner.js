@@ -7,6 +7,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 import {Link} from 'react-router-dom'
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import { NavLink } from 'react-router-dom';
 
 import { useState, useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux';
@@ -56,14 +59,21 @@ export default function DayHandlers() {
   return (
     <div>
 
-<Link to = '/mamatuttinav2'>
-<Button>DIARIO</Button>
-</Link>
 <ShopRegularity listItems= {mensualList} regularity= "mensual"/>
 <ShopRegularity listItems= {biweeklyList} regularity= "quincenale"/>
 <ShopRegularity listItems= {week1List} regularity= "semana 1"/>
 <ShopRegularity listItems= {week2List} regularity= "semana2"/>
      
+
+     
+<NavLink to = '/mamatuttinav2'>
+<SpeedDial
+  ariaLabel="SpeedDial basic example"
+  sx={{ position: 'absolute', bottom: 16, right: 16 }}
+  icon={<SpeedDialIcon />}
+/>
+</NavLink>
+
     </div>
   );
 }

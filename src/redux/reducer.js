@@ -12,7 +12,7 @@ import {
 
 
   
-const initialState = { day: {}, diary:[], dayMaxNumber:8}
+const initialState = { day: {}, diary:[], dayMaxNumber:16}
 
   const rootReducer = (state = initialState, action) => {
     switch(action.type) {
