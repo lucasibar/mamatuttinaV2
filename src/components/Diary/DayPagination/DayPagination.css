@@ -1,0 +1,15 @@
+
+.dayhandlerconteiner{
+   width: 100%;
+   background-color: rgb(203, 202, 202);
+}
+.dayChange{
+display: flex;
+justify-content: space-between;
+margin-left: 50px;
+margin-right: 50px;
+}
+.changeDayBotton{
+   background-color: transparent;
+   border: transparent;
+}

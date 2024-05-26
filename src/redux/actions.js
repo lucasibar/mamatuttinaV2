@@ -14,12 +14,14 @@ export const getDay = () => dispatch => {
         {
             name: "tomate",
             cuantity: 2,
-            unit: "unidades"
+            unit: "unidades",
+            purchaseRegularity: "mensual"
         },
         {
             name: "tomate",
             cuantity: 0.5,
-            unit: "kgs"
+            unit: "kgs",
+            purchaseRegularity: "mensual"
         }
     ] 
   } })
@@ -37,65 +39,139 @@ export const dayAfter =(dayNumber)=>dispatch => {
 export const getDiary = () => dispatch => {
  return dispatch({type: GET_DIARY, payload: 
     [
-      {
-          number: 1,
-          ingredients_products:[
-            {
-                name: "porcion de pizza",
-                cuantity: 2,
-                unit: "unidades"
-            },
-            {
-                name: "fideos",
-                cuantity: 1,
-                unit: "porcion"
-            } 
-          ] 
-      },
-      {
-          number: 2,
-          ingredients_products:[
-            {
-                name: "tomate",
-                cuantity: 2,
-                unit: "unidades"
-            },
-            {
-                name: "tomate",
-                cuantity: 0.5,
-                unit: "kgs"
-            }
-          ] 
-      }
-      ,{
-          number: 3,
-          ingredients_products:[
+        {
+            number: 1,
+            ingredients_products:[
               {
                   name: "porcion de pizza",
                   cuantity: 2,
-                  unit: "unidades"
+                  unit: "unidades",
+                  purchaseRegularity: "mensual"
               },
               {
                   name: "fideos",
                   cuantity: 1,
-                  unit: "porcion"
+                  unit: "porcion",
+                  purchaseRegularity: "quincenal"
+              } 
+            ] 
+        },
+        {
+            number: 2,
+            ingredients_products:[
+              {
+                  name: "tomate",
+                  cuantity: 2,
+                  unit: "unidades",
+                  purchaseRegularity: "mensual"
+              },
+              {
+                  name: "tomate",
+                  cuantity: 0.5,
+                  unit: "kgs",
+                  purchaseRegularity: "mensual"
+              }
+            ] 
+        }
+        ,{
+            number: 3,
+            ingredients_products:[
+                {
+                    name: "porcion de pizza",
+                    cuantity: 2,
+                    unit: "unidades",
+                    purchaseRegularity: "semana 1"
+                },
+                {
+                    name: "fideos",
+                    cuantity: 1,
+                    unit: "porcion",
+                    purchaseRegularity: "mensual"
+                }
+            ] 
+        },      {
+          number: 4,
+          ingredients_products:[
+              {
+                  name: "tomate",
+                  cuantity: 2,
+                  unit: "unidades",
+                  purchaseRegularity: "mensual"
+              },
+              {
+                  name: "tomate",
+                  cuantity: 1,
+                  unit: "kgs",
+                  purchaseRegularity: "mensual"
               }
           ] 
-      },      {
-        number: 4,
+      },     {
+        number: 5,
         ingredients_products:[
-            {
-                name: "tomate",
-                cuantity: 2,
-                unit: "unidades"
-            },
-            {
-                name: "tomate",
-                cuantity: 1,
-                unit: "kgs"
-            }
+          {
+              name: "tacos",
+              cuantity: 5,
+              unit: "porciones",
+              purchaseRegularity: "quincenal"
+          },
+          {
+              name: "fideos",
+              cuantity: 1,
+              unit: "porcion",
+              purchaseRegularity: "mensual"
+          } 
         ] 
     },
+    {
+        number: 6,
+        ingredients_products:[
+          {
+              name: "tomate",
+              cuantity: 2,
+              unit: "unidades",
+              purchaseRegularity: "mensual"
+          },
+          {
+              name: "tomate",
+              cuantity: 0.5,
+              unit: "kgs",
+              purchaseRegularity: "mensual"
+          }
+        ] 
+    }
+    ,{
+        number: 7,
+        ingredients_products:[
+            {
+                name: "porcion de pizza",
+                cuantity: 2,
+                unit: "unidades",
+                purchaseRegularity: "mensual"
+            },
+            {
+                name: "fideos",
+                cuantity: 1,
+                unit: "porcion",
+                purchaseRegularity: "mensual"
+            }
+        ] 
+    },      {
+      number: 8,
+      ingredients_products:[
+          {
+              name: "tomate",
+              cuantity: 2,
+              unit: "unidades",
+              purchaseRegularity: "mensual"
+          },
+          {
+              name: "tomate",
+              cuantity: 1,
+              unit: "kgs",
+              purchaseRegularity: "mensual"
+          }
+      ] 
+  }
     ]
    })
 }

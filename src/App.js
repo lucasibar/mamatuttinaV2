@@ -1,7 +1,7 @@
 import React from 'react';
-import Home from './components/Home/Home';
+import Diary from './components/Diary/Diary';
 import { Route, Routes } from "react-router-dom";
-import ShopList from './components/ShopList/ShopList'
+import ShopConteiner from './components/ShopConteiner/ShopConteiner'
 
 function App() {
   return (
@@ -10,12 +10,12 @@ function App() {
       <Route 
        exact  
           path="/mamatuttinav2/listacompras"
-          element={<ShopList />}
+          element={<ShopConteiner />}
         /> 
       <Route 
           exact 
           path="/mamatuttinav2"
-          element={<Home />}
+          element={<Diary />}
         /> 
       </Routes>
     </div>
